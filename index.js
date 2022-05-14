@@ -55,6 +55,13 @@ async function run() {
 
  });
  
+  // GET SINGLE OFFERS
+  app.get('/offers/:id', async (req,res)=>{
+    const id = req.params.id;
+    const query = {_id: ObjectId(id)};
+    const booking = await CollectionFive.findOne(query)
+  res.json(booking);
+  });
  
   } finally {
    // await client.close();
