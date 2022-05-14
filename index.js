@@ -21,9 +21,7 @@ async function run() {
     const CollectionTwo = database.collection("collectionTwo");
     const CollectionThree = database.collection("collectionThree");
     const CollectionFour = database.collection("collectionFour");
-    // const tourInfoCollection = database.collection(" tourInfo" );
-    // const flightsCollection = database.collection("flightInfo");
-    // const busCollection = database.collection(" busInfo");
+    const CollectionFive = database.collection("offersCollection");
   
  // GET API REVIEWS
  app.get('/busInfo', async (req,res)=>{
@@ -46,6 +44,12 @@ async function run() {
  });
  app.get('/hotelInfo', async (req,res)=>{
   const cursor = CollectionFour.find({});
+  const hotel = await cursor.toArray();
+  res.send(hotel);
+
+ });
+ app.get('/offersInfo', async (req,res)=>{
+  const cursor = CollectionFive.find({});
   const hotel = await cursor.toArray();
   res.send(hotel);
 
