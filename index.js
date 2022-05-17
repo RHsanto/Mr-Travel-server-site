@@ -22,7 +22,7 @@ async function run() {
     const CollectionThree = database.collection("collectionThree");
     const CollectionFour = database.collection("collectionFour");
    
-    
+
  // GET API REVIEWS
  app.get('/busInfo', async (req,res)=>{
   const cursor = CollectionOne.find({});
@@ -60,6 +60,27 @@ async function run() {
     const id = req.params.id;
     const query = {_id: ObjectId(id)};
     const booking = await CollectionFour.findOne(query)
+  res.json(booking);
+  });
+  // GET SINGLE OFFERS
+  app.get('/flights/:id', async (req,res)=>{
+    const id = req.params.id;
+    const query = {_id: ObjectId(id)};
+    const booking = await CollectionThree.findOne(query)
+  res.json(booking);
+  });
+  // GET SINGLE OFFERS
+  app.get('/tours/:id', async (req,res)=>{
+    const id = req.params.id;
+    const query = {_id: ObjectId(id)};
+    const booking = await CollectionTwo.findOne(query)
+  res.json(booking);
+  });
+  // GET SINGLE OFFERS
+  app.get('/bus/:id', async (req,res)=>{
+    const id = req.params.id;
+    const query = {_id: ObjectId(id)};
+    const booking = await CollectionOne.findOne(query)
   res.json(booking);
   });
  
