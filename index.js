@@ -21,7 +21,7 @@ async function run() {
     const CollectionTwo = database.collection("collectionTwo");
     const CollectionThree = database.collection("collectionThree");
     const CollectionFour = database.collection("collectionFour");
-    const bookingCollection = database.collection("collectionUser");
+    const bookingCollection = database.collection("bookingCollection");
    
 
  // GET API REVIEWS
@@ -86,7 +86,7 @@ async function run() {
   });
  
   // here put booking data
-  app.post('/users', async (req,res) => {
+  app.post('/booking', async (req,res) => {
     const user = req.body;
     const result = await bookingCollection.insertOne(user);
     res.json( result)
