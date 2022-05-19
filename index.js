@@ -21,6 +21,7 @@ async function run() {
     const CollectionTwo = database.collection("collectionTwo");
     const CollectionThree = database.collection("collectionThree");
     const CollectionFour = database.collection("collectionFour");
+    const CollectionFive = database.collection("offersCollection");
     const bookingCollection = database.collection("bookingCollection");
    
 
@@ -50,7 +51,7 @@ async function run() {
 
  });
  app.get('/offersInfo', async (req,res)=>{
-  const cursor = CollectionFour.find({});
+  const cursor = CollectionFive.find({});
   const hotel = await cursor.toArray();
   res.send(hotel);
 
