@@ -61,9 +61,10 @@ async function run() {
   app.get('/offers/:id', async (req,res)=>{
     const id = req.params.id;
     const query = {_id: ObjectId(id)};
-    const booking = await CollectionFour.findOne(query)
+    const booking = await CollectionFive.findOne(query)
   res.json(booking);
   });
+  
   // GET SINGLE OFFERS
   app.get('/flights/:id', async (req,res)=>{
     const id = req.params.id;
